@@ -8,14 +8,35 @@ let state = {
 
 // increase cookieCount by cookieCount+cps
 setInterval(function () {
-  cookieCount = cookieCount + cps;
-  //update dom to display the new using getElement
+  state.cookieCount = state.cookieCount + state.cps;
+  //display count on page
+  document.getElementById("cookies").innerText = state.cookieCount;
   //save state to local storage using setItem
+  saveStateToLocal();
 }, 1000);
 
-//make the cookie image functional
-//getElementById
-//add an event listener with a click function that then increases the cookieCount by 1
+//stringify and save to local
+function saveStateToLocal() {
+  const saveStateString = JSON.stringify(state);
+  localStorage.setItem("state", saveStateString);
+}
+
+//get from localStorage and update cookieCount and cps
+const returnStateString = localStorage.getItem("state");
+const returnedState = JSON.parse(returnStateString);
+state.cookieCount = returnedState.cookieCount;
+state.cps = returnedState.cps;
+
+//make the cookie image functional and increase cookieCount by 1 for every click
+const cookieImage = document.getElementById("cookieImage");
+cookieImage.addEventListener("click", function () {
+  state.cookieCount++;
+  document.getElementById("cookies").innerText = state.cookieCount;
+});
+
+//show cps count in p tag
+const cpsDisplay = document.getElementById("cps");
+cpsDisplay.innerText = "CPS: " + state.cps;
 
 //get shop items displayed on screen from api
 //async function with await fetch and .json()

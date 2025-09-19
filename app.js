@@ -9,6 +9,9 @@ let state = {
 const cpsDisplay = document.getElementById("cps");
 const cookieDisplay = document.getElementById("cookies");
 const shopDisplay = document.getElementById("shop");
+const imgSound = document.getElementById("imgSound");
+const successSound = document.getElementById("successSound");
+const failSound = document.getElementById("failSound");
 
 // increase cookieCount by cookieCount+cps
 setInterval(function () {
@@ -43,7 +46,9 @@ const cookieImage = document.getElementById("cookieImage");
 cookieImage.addEventListener("click", function () {
   state.cookieCount++;
   document.getElementById("cookies").innerText =
-    "Cookie count : " + state.cookieCount;
+    "Cookie count: " + state.cookieCount;
+  imgSound.currentTime = 0;
+  imgSound.play();
 });
 
 //get upgrade data from api using async function with await fetch and .json()
@@ -71,9 +76,15 @@ async function displayUpgrades() {
         state.cookieCount = state.cookieCount - shopUpgrade.cost;
         cpsDisplay.innerText = "CPS: " + state.cps;
         cookieDisplay.innerText = "Cookie count: " + state.cookieCount;
+        successSound.currentTime = 0;
+        successSound.play();
       } else {
-        //otherwise alert the user they don't have enough cookies
-        alert("You don't have enough cookies!");
+        //otherwise alert the user they don't have enough cookies and delay the laert so the sound plays immediately
+        setTimeout(function () {
+          alert("You don't have enough cookies to buy that upgrade!");
+        }, 10);
+        failSound.currentTime = 0;
+        failSound.play();
       }
     });
 

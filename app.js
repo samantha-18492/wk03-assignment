@@ -19,6 +19,9 @@ function updateDisplays() {
   cpsDisplay.innerText = "CPS: " + state.cps;
 }
 
+//called in case there is a delay in getting the api data on load
+updateDisplays();
+
 // increase cookieCount by cookieCount+cps
 setInterval(function () {
   state.cookieCount += state.cps;

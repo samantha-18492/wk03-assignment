@@ -19,6 +19,17 @@ function updateDisplays() {
   cpsDisplay.innerText = "CPS: " + state.cps;
 }
 
+//get from localStorage and if there's a value update cookieCount and cps
+const returnStateString = localStorage.getItem("state");
+if (returnStateString) {
+  const returnedState = JSON.parse(returnStateString);
+  state.cookieCount = returnedState.cookieCount || 0;
+  state.cps = returnedState.cps || 0;
+}
+
+//called in case there is a delay in getting the api data on load
+updateDisplays();
+
 // increase cookieCount by cookieCount+cps
 setInterval(function () {
   state.cookieCount += state.cps;
@@ -33,17 +44,6 @@ function saveStateToLocal() {
   const saveStateString = JSON.stringify(state);
   localStorage.setItem("state", saveStateString);
 }
-
-//get from localStorage and if there's a value update cookieCount and cps
-const returnStateString = localStorage.getItem("state");
-if (returnStateString) {
-  const returnedState = JSON.parse(returnStateString);
-  state.cookieCount = returnedState.cookieCount || 0;
-  state.cps = returnedState.cps || 0;
-}
-
-//called in case there is a delay in getting the api data on load
-updateDisplays();
 
 //make the cookie image functional and increase cookieCount by 1 for every click
 const cookieImage = document.getElementById("cookieImage");

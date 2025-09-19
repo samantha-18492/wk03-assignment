@@ -5,14 +5,19 @@
 }
 
 body {
-  background-image: url("./assets/bakery.jpg");
+  background-image: url("./assets/background.webp");
+  background-repeat: no-repeat;
+  background-color: #ed5160;
+  background-position: center center;
   height: 100vh;
   display: flex;
   flex-direction: column;
 }
 
 header {
-  background-color: purple;
+  background-color: #ed5161f5;
+  color: white;
+  text-transform: uppercase;
   padding: 20px;
   text-align: center;
 }
@@ -20,22 +25,28 @@ header {
 main {
   flex: 1;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
+  padding-top: 110px;
+  justify-content: space-around;
+}
+
+.column {
+  flex: 1;
+  display: flex;
   justify-content: center;
+  align-items: center;
 }
 
 .left {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+}
+
+.middle {
+  padding-top: 150px;
 }
 
 .right {
-  flex: 1;
-  display: flex;
+  padding-top: 80px;
   flex-direction: column;
-  align-items: center;
 }
 
 .display {
@@ -62,7 +73,8 @@ img:hover {
 }
 
 .shop button {
-  background-color: white;
+  background-color: #ed5161;
+  color: white;
   border: solid;
   border-radius: 15px;
   padding: 10px;
@@ -82,7 +94,8 @@ img:hover {
 }
 
 footer {
-  background-color: purple;
+  background-color: #ed5161f5;
+  color: white;
   text-align: center;
   padding: 10px;
   position: fixed;

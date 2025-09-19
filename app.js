@@ -60,14 +60,19 @@ async function getUpgrades() {
   return data;
 }
 
+const customNames = {
+  "Enhanced Oven": "Ergonomic Hook",
+};
+
 //get upgrade data from api to show on webpage as buy items using forEach, create elements and append
 async function displayUpgrades() {
   const upgrades = await getUpgrades();
   upgrades.forEach(function (shopUpgrade) {
+    const displayName = customNames[shopUpgrade.name] || shopUpgrade.name;
     //create button
     const upgradeButton = document.createElement("button");
     //add text
-    upgradeButton.innerHTML = `${shopUpgrade.name}<br>(Cost: ${shopUpgrade.cost}, Increase: ${shopUpgrade.increase})`;
+    upgradeButton.innerHTML = `${displayName}<br>(Cost: ${shopUpgrade.cost}, Increase: ${shopUpgrade.increase})`;
     //add click event
     upgradeButton.addEventListener("click", function () {
       //if cookie count is more than cost, add the increase of the upgrade to cps and minus cost of the upgrade from cookie count

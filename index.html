@@ -9,20 +9,23 @@
   </head>
   <body>
     <header>
-      <h1>Cookie clicker</h1>
+      <h1>Num num cookie</h1>
     </header>
     <main>
-      <div class="left">
-        <img src="./assets/cookie.jpg" id="cookieImage" />
+      <div class="column left">
+        <img src="./assets/cookie.png" id="cookieImage" />
         <audio src="./assets/chewing.mp3" id="imgSound"></audio>
       </div>
-      <div class="right">
+      <div class="column middle">
         <div class="display">
           <p id="cookies" class="count"></p>
           <p id="cps" class="count"></p>
+          <button id="reset" class="reset">Reset</button>
         </div>
+      </div>
+      <div class="column right">
+        <p>Upgrades</p>
         <div id="shop" class="shop"></div>
-        <button id="reset" class="reset">Reset</button>
         <audio src="./assets/success.mp3" id="successSound"></audio>
         <audio src="./assets/fail.mp3" id="failSound"></audio>
       </div>

@@ -1,4 +1,91 @@
+* {
+  margin: 0px;
+  font-family: sans-serif;
+  box-sizing: border-box;
+}
+
+body {
+  background-image: url("./assets/bakery.jpg");
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  background-color: purple;
+  padding: 20px;
+  text-align: center;
+}
+
+main {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.left {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.display {
+  padding: 10px;
+  text-align: center;
+}
+
 img {
-  height: 400px;
+  height: 500px;
   width: auto;
+}
+
+img:hover {
+  cursor: pointer;
+}
+
+.shop {
+  background-color: purple;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  padding: 10px;
+  width: 400px;
+}
+
+.shop button {
+  background-color: white;
+  border: solid;
+  border-radius: 15px;
+  padding: 10px;
+}
+
+.shop button:hover {
+  cursor: pointer;
+}
+
+.count {
+  font-size: 36px;
+  font-weight: bold;
+}
+
+.reset {
+  margin: 10px;
+}
+
+footer {
+  background-color: purple;
+  text-align: center;
+  padding: 10px;
+  position: fixed;
+  bottom: 0;
+  width: 100vw;
 }

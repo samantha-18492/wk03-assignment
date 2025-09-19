@@ -3,7 +3,7 @@ console.log("testing");
 //create object for cookieCount and cps
 let state = {
   cookieCount: 0,
-  cps: 1,
+  cps: 0,
 };
 
 const cpsDisplay = document.getElementById("cps");
@@ -39,7 +39,7 @@ const returnStateString = localStorage.getItem("state");
 if (returnStateString) {
   const returnedState = JSON.parse(returnStateString);
   state.cookieCount = returnedState.cookieCount || 0;
-  state.cps = returnedState.cps || 1;
+  state.cps = returnedState.cps || 0;
 }
 
 //make the cookie image functional and increase cookieCount by 1 for every click
@@ -67,7 +67,7 @@ async function displayUpgrades() {
     //create button
     const upgradeButton = document.createElement("button");
     //add text
-    upgradeButton.innerText = `${shopUpgrade.name} (Cost: ${shopUpgrade.cost}, Increase: ${shopUpgrade.increase})`;
+    upgradeButton.innerHTML = `${shopUpgrade.name}<br>(Cost: ${shopUpgrade.cost}, Increase: ${shopUpgrade.increase})`;
     //add click event
     upgradeButton.addEventListener("click", function () {
       //if cookie count is more than cost, add the increase of the upgrade to cps and minus cost of the upgrade from cookie count
@@ -93,3 +93,12 @@ async function displayUpgrades() {
 }
 
 displayUpgrades();
+
+//reset button
+const reset = document.getElementById("reset");
+reset.addEventListener("click", function () {
+  state.cookieCount = 0;
+  state.cps = 0;
+  updateDisplays();
+  saveStateToLocal();
+});

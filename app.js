@@ -42,9 +42,6 @@ if (returnStateString) {
   state.cps = returnedState.cps || 1;
 }
 
-//show cookieCount and cps count in p tag - not needed nor or statement in place?
-//
-
 //make the cookie image functional and increase cookieCount by 1 for every click
 const cookieImage = document.getElementById("cookieImage");
 cookieImage.addEventListener("click", function () {
@@ -96,7 +93,3 @@ async function displayUpgrades() {
 }
 
 displayUpgrades();
-
-//the upgrades are an array of objects
-
-//purchasing upgrades: create generic function that uses a + b that works for all shop upgrades

@@ -2,6 +2,7 @@
   margin: 0px;
   font-family: arial;
   box-sizing: border-box;
+  color: white;
 }
 
 body {
@@ -16,7 +17,7 @@ body {
 
 header {
   background-color: #ed5161f5;
-  color: white;
+  /* color: white; */
   text-transform: uppercase;
   padding: 20px;
   text-align: center;
@@ -51,7 +52,6 @@ main {
 }
 
 .right {
-  padding-top: 5px;
   flex-direction: column;
 }
 
@@ -74,22 +74,22 @@ img:hover {
   grid-template-columns: repeat(2, 1fr);
   gap: 10px;
   padding: 10px;
-  width: 500px;
+  width: 450px;
 }
 
 .shop button {
   background-color: #ed5161;
-  color: white;
-  border: solid;
+  border: none;
   border-radius: 15px;
   padding: 10px;
-  font-size: 16px;
+  font-size: 14px;
   text-transform: uppercase;
   font-family: "Delius", sans-serif;
 }
 
 .shop button:hover {
   cursor: pointer;
+  background-color: #91b7f5;
 }
 
 .count {
@@ -97,17 +97,29 @@ img:hover {
   font-weight: bold;
   font-family: "Cherry Bomb One";
   text-transform: uppercase;
-  color: white;
   letter-spacing: 5px;
 }
 
 .reset {
-  margin: 10px;
+  margin: 30px;
+  background-color: #d38651;
+  border: none;
+  border-radius: 15px;
+  padding: 20px 40px 20px 40px;
+  font-size: 20px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-family: "Cherry Bomb One", sans-serif;
+}
+
+.reset:hover {
+  cursor: pointer;
+  background-color: #803619;
 }
 
 footer {
   background-color: #ed5161f5;
-  color: white;
+  font-family: "Delius", sans-serif;
   text-align: center;
   padding: 10px;
   position: fixed;

@@ -68,11 +68,10 @@ const customNames = {
 async function displayUpgrades() {
   const upgrades = await getUpgrades();
   upgrades.forEach(function (shopUpgrade) {
-    const displayName = customNames[shopUpgrade.name] || shopUpgrade.name;
     //create button
     const upgradeButton = document.createElement("button");
     //add text
-    upgradeButton.innerHTML = `${displayName}<br>(Cost: ${shopUpgrade.cost}, Increase: ${shopUpgrade.increase})`;
+    upgradeButton.innerHTML = `${shopUpgrade.name}<br>Cost: ${shopUpgrade.cost}<br>Increase: ${shopUpgrade.increase}`;
     //add click event
     upgradeButton.addEventListener("click", function () {
       //if cookie count is more than cost, add the increase of the upgrade to cps and minus cost of the upgrade from cookie count

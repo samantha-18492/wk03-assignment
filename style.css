@@ -1,6 +1,6 @@
 * {
   margin: 0px;
-  font-family: sans-serif;
+  font-family: arial;
   box-sizing: border-box;
 }
 
@@ -20,6 +20,12 @@ header {
   text-transform: uppercase;
   padding: 20px;
   text-align: center;
+}
+
+h1 {
+  font-family: "Cherry Bomb One", sans-serif;
+  font-size: 50px;
+  letter-spacing: 5px;
 }
 
 main {
@@ -45,7 +51,7 @@ main {
 }
 
 .right {
-  padding-top: 80px;
+  padding-top: 5px;
   flex-direction: column;
 }
 
@@ -64,12 +70,11 @@ img:hover {
 }
 
 .shop {
-  background-color: purple;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 10px;
   padding: 10px;
-  width: 400px;
+  width: 500px;
 }
 
 .shop button {
@@ -78,6 +83,9 @@ img:hover {
   border: solid;
   border-radius: 15px;
   padding: 10px;
+  font-size: 16px;
+  text-transform: uppercase;
+  font-family: "Delius", sans-serif;
 }
 
 .shop button:hover {
@@ -85,8 +93,12 @@ img:hover {
 }
 
 .count {
-  font-size: 36px;
+  font-size: 40px;
   font-weight: bold;
+  font-family: "Cherry Bomb One";
+  text-transform: uppercase;
+  color: white;
+  letter-spacing: 5px;
 }
 
 .reset {

@@ -14,7 +14,7 @@ const shopDisplay = document.getElementById("shop");
 setInterval(function () {
   state.cookieCount = state.cookieCount + state.cps;
   //display count on page
-  cookieDisplay.innerText = "Cookie count : " + state.cookieCount;
+  cookieDisplay.innerText = "Cookie count: " + state.cookieCount;
   cpsDisplay.innerText = "CPS: " + state.cps;
   //save state to local storage using setItem
   saveStateToLocal();
@@ -30,9 +30,13 @@ function saveStateToLocal() {
 const returnStateString = localStorage.getItem("state");
 if (returnStateString) {
   const returnedState = JSON.parse(returnStateString);
-  state.cookieCount = returnedState.cookieCount;
-  state.cps = returnedState.cps;
+  state.cookieCount = returnedState.cookieCount || 0;
+  state.cps = returnedState.cps || 1;
 }
+
+//show cookieCount and cps count in p tag - not needed nor or statement in place?
+// cookieDisplay.innerText = "Cookie count: " + state.cookieCount;
+// cpsDisplay.innerText = "CPS: " + state.cps;
 
 //make the cookie image functional and increase cookieCount by 1 for every click
 const cookieImage = document.getElementById("cookieImage");
@@ -41,9 +45,6 @@ cookieImage.addEventListener("click", function () {
   document.getElementById("cookies").innerText =
     "Cookie count : " + state.cookieCount;
 });
-
-//show cps count in p tag
-// cpsDisplay.innerText = "CPS: " + state.cps; // Is this needed now it's in the setInterval?
 
 //get upgrade data from api using async function with await fetch and .json()
 async function getUpgrades() {

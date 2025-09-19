@@ -13,12 +13,17 @@ const imgSound = document.getElementById("imgSound");
 const successSound = document.getElementById("successSound");
 const failSound = document.getElementById("failSound");
 
+//create function that updates cookieCount and cps
+function updateDisplays() {
+  cookieDisplay.innerText = "Cookie count: " + state.cookieCount;
+  cpsDisplay.innerText = "CPS: " + state.cps;
+}
+
 // increase cookieCount by cookieCount+cps
 setInterval(function () {
   state.cookieCount = state.cookieCount + state.cps;
   //display count on page
-  cookieDisplay.innerText = "Cookie count: " + state.cookieCount;
-  cpsDisplay.innerText = "CPS: " + state.cps;
+  updateDisplays();
   //save state to local storage using setItem
   saveStateToLocal();
 }, 1000);
@@ -38,15 +43,13 @@ if (returnStateString) {
 }
 
 //show cookieCount and cps count in p tag - not needed nor or statement in place?
-// cookieDisplay.innerText = "Cookie count: " + state.cookieCount;
-// cpsDisplay.innerText = "CPS: " + state.cps;
+//
 
 //make the cookie image functional and increase cookieCount by 1 for every click
 const cookieImage = document.getElementById("cookieImage");
 cookieImage.addEventListener("click", function () {
   state.cookieCount++;
-  document.getElementById("cookies").innerText =
-    "Cookie count: " + state.cookieCount;
+  updateDisplays();
   imgSound.currentTime = 0;
   imgSound.play();
 });
@@ -74,8 +77,7 @@ async function displayUpgrades() {
       if (state.cookieCount >= shopUpgrade.cost) {
         state.cps = state.cps + shopUpgrade.increase;
         state.cookieCount = state.cookieCount - shopUpgrade.cost;
-        cpsDisplay.innerText = "CPS: " + state.cps;
-        cookieDisplay.innerText = "Cookie count: " + state.cookieCount;
+        updateDisplays();
         successSound.currentTime = 0;
         successSound.play();
       } else {

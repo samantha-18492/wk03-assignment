@@ -21,7 +21,7 @@ function updateDisplays() {
 
 // increase cookieCount by cookieCount+cps
 setInterval(function () {
-  state.cookieCount = state.cookieCount + state.cps;
+  state.cookieCount += state.cps;
   //display count on page
   updateDisplays();
   //save state to local storage using setItem
@@ -75,8 +75,8 @@ async function displayUpgrades() {
     upgradeButton.addEventListener("click", function () {
       //if cookie count is more than cost, add the increase of the upgrade to cps and minus cost of the upgrade from cookie count
       if (state.cookieCount >= shopUpgrade.cost) {
-        state.cps = state.cps + shopUpgrade.increase;
-        state.cookieCount = state.cookieCount - shopUpgrade.cost;
+        state.cps += shopUpgrade.increase;
+        state.cookieCount -= shopUpgrade.cost;
         updateDisplays();
         successSound.currentTime = 0;
         successSound.play();

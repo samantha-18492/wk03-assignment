@@ -19,9 +19,6 @@ function updateDisplays() {
   cpsDisplay.innerText = "CPS: " + state.cps;
 }
 
-//called in case there is a delay in getting the api data on load
-updateDisplays();
-
 // increase cookieCount by cookieCount+cps
 setInterval(function () {
   state.cookieCount += state.cps;
@@ -44,6 +41,9 @@ if (returnStateString) {
   state.cookieCount = returnedState.cookieCount || 0;
   state.cps = returnedState.cps || 0;
 }
+
+//called in case there is a delay in getting the api data on load
+updateDisplays();
 
 //make the cookie image functional and increase cookieCount by 1 for every click
 const cookieImage = document.getElementById("cookieImage");
